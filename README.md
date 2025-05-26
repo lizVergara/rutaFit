@@ -24,14 +24,7 @@ lib/
 ├─ widgets/ # Componentes reutilizables 
 ├─ screens/ # Pantallas 
 └─ theme/ # Paleta de colores y tema global
-
-##  Cómo ejecutar
-```bash
-git clone https://github.com/lizVergara/rutafit.git
-cd rutafit
-flutter pub get
-flutter run
-
+---
 ##  Permisos solicitado por la aplicación
 • Android: se declaran Bluetooth y queries de intent en AndroidManifest.xml
 • iOS: descripciones Bluetooth y Motion en Info.plist
@@ -44,6 +37,14 @@ Flujo de uso
      • Pull-to-refresh o botón Cargar consejos.
      • Toca cualquier tip → se abre Google con más información.
 4. Cerrar sesión cuando lo desees (resetea last_user en Hive).
+---
+##  Cómo ejecutar
+```bash
+git clone https://github.com/lizVergara/rutafit.git
+cd rutafit
+flutter pub get
+flutter run
+---
 
 En correo he dejado el apk de la aplicacion para que puedan probarla en un dispositivo android.
 
