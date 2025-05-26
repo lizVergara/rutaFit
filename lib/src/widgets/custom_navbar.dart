@@ -40,10 +40,6 @@ class CustomNavBar extends StatelessWidget {
               icon: const Icon(Icons.fitness_center),
               title: const Text("Tips"),
             ),
-            SalomonBottomBarItem(
-              icon: const Icon(Icons.more_horiz),
-              title: const Text("Más"),
-            ),
           ],
         ),
       ),

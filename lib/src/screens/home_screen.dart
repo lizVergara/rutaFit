@@ -6,7 +6,6 @@ import '../controllers/steps_controller.dart';
 import '../widgets/custom_navbar.dart';
 import 'sync_screen.dart';
 import 'advice_screen.dart';
-import 'placeholder_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,7 +19,6 @@ class HomeScreen extends StatelessWidget {
     final pages = [
       const SyncScreen(),
       const AdviceScreen(),
-      const PlaceholderScreen(),
     ];
 
     return Scaffold(

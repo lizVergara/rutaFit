@@ -30,14 +30,20 @@ class AuthController extends GetxController {
 
   Future<void> login(String user, String pass) async {
     final users = await HiveService.getUsers();
-    final existing =
-        users.firstWhereOrNull((u) => u.username == user && u.password == pass);
-
-    if (existing != null) {
-      currentUser.value = existing;
-      isLogged.value = true;
-      await Hive.box('session').put('last_user', existing.username);
-      return;
+    final byName = users.firstWhereOrNull(
+        (u) => u.username.toLowerCase() == user.toLowerCase());
+    if (byName != null) {
+      if (byName.password == pass) {
+        currentUser.value = byName;
+        isLogged.value = true;
+        await Hive.box('session').put('last_user', byName.username);
+      } else {
+        Get.snackbar('Error', 'Contraseña incorrecta',
+            snackPosition: SnackPosition.TOP,
+            backgroundColor: Colors.white.withOpacity(0.8),
+            colorText: Colors.black);
+      }
+      return; // salimos en ambos casos
     }
 
     if (users.length < 2) {
@@ -54,7 +60,7 @@ class AuthController extends GetxController {
   void logout() async {
     currentUser.value = null;
     isLogged.value = false;
-    await Hive.box('session').delete('last_user'); // ⬅️
+    await Hive.box('session').delete('last_user');
   }
 
   void _showMaxDialog(List<UserData> users) {
@@ -103,8 +109,8 @@ class AuthController extends GetxController {
                           TextButton(
                             onPressed: () async {
                               await HiveService.deleteUser(u.username);
-                              Get.back(); // confirm
-                              Get.back(); // principal
+                              Get.back();
+                              Get.back();
                             },
                             child: const Text('Eliminar',
                                 style: TextStyle(color: Colors.red)),

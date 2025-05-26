@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
             colors: [
               AppColors.primary,
               Color(0xFF2E2E2E),
-            ], // gris oscuro a verde
+            ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
