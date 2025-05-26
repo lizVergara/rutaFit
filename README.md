@@ -28,8 +28,9 @@ lib/
 ##  Permisos solicitado por la aplicación
 • Android: se declaran Bluetooth y queries de intent en AndroidManifest.xml
 • iOS: descripciones Bluetooth y Motion en Info.plist
+---
 
-Flujo de uso
+## Flujo de uso
 1. Crear usuario → Inicia sesión y se guarda en Hive.
 2. Pestaña Sync
      • Pulsa Sincronizar dispositivo → activación BLE → pasos sumados.
